@@ -6,7 +6,7 @@
 #    By: fernando <fernando@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/17 21:23:10 by fernando          #+#    #+#              #
-#    Updated: 2020/03/18 13:41:28 by fernando         ###   ########.fr        #
+#    Updated: 2020/03/18 18:29:58 by fernando         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS =	ft_strlen.s \
 		ft_strcmp.s \
 		ft_write.s \
 		ft_read.s \
+		ft_strdup.s
 
 CC = gcc
 

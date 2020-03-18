@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 21:25:31 by fernando          #+#    #+#             */
-/*   Updated: 2020/03/18 13:58:59 by fernando         ###   ########.fr       */
+/*   Updated: 2020/03/18 19:10:06 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int main()
 {
+    ssize_t		ret;
+	int			fd;	
+	char		buf[100];
+
     char	str1[] = "Adios";
 	char	str2[] = "Hola";
 	char	str3[] = "Tintin se fue a la guerra\n";
-	//char	str4[] = "libasm is for the ";
-	//char	str5[] = "petit";
-	//char	str6[] = "grand";
-	//char	str7[] = "";
 
     printf("%sPRUEBA DE FT_STRLEN:	\n", YELLOW);
 
@@ -40,10 +40,33 @@ int main()
     printf("%d\n", strcmp(str1, str3));
     printf("\n");
 
-    printf("%sPRUEBA DE FT_WRITE:	\n", COLOR);
+    printf("%sPRUEBA DE FT_WRITE:	\n", ROJO);
 
     ft_write(1, str3, ft_strlen(str3));
     write(1, str3, strlen(str3));
+    printf("\n");
+
+    printf("%sPRUEBA DE FT_READ:	\n", PURPLE);
+
+    fd = open("ft_write.s", O_RDONLY);
+    ret = ft_read(0, buf, 42);
+    buf[ret] = '\0';
+    printf("%s\nreturn : [%zd]\n\n", buf, ret);
+    close(fd);
+
+    printf("%sPRUEBA DE READ REAL:	\n", COLOR);
+
+    fd = open("ft_write.s", O_RDONLY);
+    ret = read(0, buf, 42);
+    buf[ret] = '\0';
+    printf("%s\nreturn : [%zd]\n\n", buf, ret);
+    close(fd);
+
+
+    printf("%sPRUEBA DE FT_STRDUP:	\n", WHITE);
+
+    printf("%s", ft_strdup(str3));
+    printf("%s", strdup(str3));
     printf("\n");
 
     return (0);
