@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 21:25:31 by fernando          #+#    #+#             */
-/*   Updated: 2020/03/18 19:10:06 by fernando         ###   ########.fr       */
+/*   Updated: 2020/03/24 20:43:05 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int main()
     printf("%s\nreturn : [%zd]\n\n", buf, ret);
     close(fd);
 
-    printf("%sPRUEBA DE READ REAL:	\n", COLOR);
+    printf("%sPRUEBA DE READ REAL:	\n", GREEN_INT);
 
     fd = open("ft_write.s", O_RDONLY);
     ret = read(0, buf, 42);

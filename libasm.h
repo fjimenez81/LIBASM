@@ -6,7 +6,7 @@
 /*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 21:19:31 by fernando          #+#    #+#             */
-/*   Updated: 2020/03/18 19:08:27 by fernando         ###   ########.fr       */
+/*   Updated: 2020/03/24 20:42:51 by fernando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # define MAGENTA	"\033[0;36m"
 # define ROJO	    "\033[1;31m"
 # define PURPLE	    "\033[0;35m"
-# define COLOR	    "\033[1;92m" 
+# define GREEN_INT	"\033[1;92m" 
 # define WHITE	    "\033[0m"
 
 # include <string.h>
