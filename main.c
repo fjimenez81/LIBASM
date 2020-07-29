@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fernando <fernando@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fjimenez <fjimenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 21:25:31 by fernando          #+#    #+#             */
-/*   Updated: 2020/04/13 00:56:26 by fernando         ###   ########.fr       */
+/*   Updated: 2020/07/29 18:08:02 by fjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int main()
 	int			fd;	
 	char		buf[100];
 
-    char	str1[] = "Adios";
-	char	str2[] = "Hola";
-	char	str3[] = "Tintin se fue a la guerra\n";
+    char	str1[100] = "Adios";
+	char	str2[100] = "Hola";
+	char	str3[100] = "Tintin se fue a la guerra\n";
 
     printf("%sPRUEBA DE FT_STRLEN: \n", YELLOW);
     printf("%zu\n", ft_strlen(str1));
@@ -51,25 +51,26 @@ int main()
     printf("\n");
 
     printf("%sPRUEBA DE FT_READ: \n", PURPLE);
-    fd = open("ft_write.s", O_RDONLY);
-    ret = ft_read(0, buf, 42);
+    fd = open("test.txt", O_RDONLY);
+    ret = ft_read(fd, buf, 42);
     buf[ret] = '\0';
     printf("%s\nreturn : [%zd]\n\n", buf, ret);
     close(fd);
 
     printf("%sPRUEBA DE READ REAL:	\n", GREEN_INT);
-    fd = open("ft_write.s", O_RDONLY);
-    ret = read(0, buf, 42);
+    fd = open("test.txt", O_RDONLY);
+    ret = read(fd, buf, 42);
     buf[ret] = '\0';
     printf("%s\nreturn : [%zd]\n\n", buf, ret);
     close(fd);
 	printf("\n");
 
     printf("%sPRUEBA DE FT_STRDUP:	\n", WHITE);
-    printf("%s", ft_strdup(str3));
+    printf("%s", ft_strdup(str2));
+    printf("\n");
 
     printf("%sPRUEBA DE STRDUP REAL: \n", WHITE);
-    printf("%s", strdup(str3));
+    printf("%s", strdup(str2));
     printf("\n");
 
     return (0);
