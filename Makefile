@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fernando <fernando@student.42.fr>          +#+  +:+       +#+         #
+#    By: fjimenez <fjimenez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/17 21:23:10 by fernando          #+#    #+#              #
-#    Updated: 2020/03/18 18:29:58 by fernando         ###   ########.fr        #
+#    Updated: 2020/08/31 16:47:45 by fjimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,20 @@ NAME = libasm
 
 NAME_LIB = libasm.a
 
-SRCS =	ft_strlen.s \
+OS			=	$(shell uname)
+
+ifeq ($(OS), Linux)
+	NASMFLAGS		= 	-f elf64
+	PATCH		=	-no-pie
+	SRC_DIR		=	srcs_linux/
+endif
+ifeq ($(OS), Darwin)
+	NASMFLAGS		= 	-f macho64
+	PATCH		=	-I./ -L./ -lasm
+	SRC_DIR		=	srcs_darwin/
+endif
+
+SRC_FILES =	ft_strlen.s \
 		ft_strcpy.s \
 		ft_strcmp.s \
 		ft_write.s \
@@ -23,13 +36,15 @@ SRCS =	ft_strlen.s \
 
 CC = gcc
 
+SRC	= $(addprefix $(SRC_DIR), $(SRC_FILES))
+
 CFLAGS = -Wall -Wextra -Werror
 
 NASM = nasm
 
-NASMFLAGS = -f macho64
+#NASMFLAGS = -f macho64
 
-OBJ = $(SRCS:.s=.o)
+OBJ = $(SRC:.s=.o)
 
 %.o : %.s
 	$(NASM) $(NASMFLAGS) $< -o $@
@@ -40,7 +55,7 @@ $(NAME) : $(OBJ)
 	ar rcs $(NAME_LIB) $(OBJ)
 
 execute :
-	$(CC) $(CFLAGS) main.c $(NAME_LIB)
+	$(CC) $(PATCH) main.c $(NAME_LIB) && ./a.out
 
 clean :
 	rm -f $(OBJ)
