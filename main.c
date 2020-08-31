@@ -6,7 +6,7 @@
 /*   By: fjimenez <fjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 21:25:31 by fernando          #+#    #+#             */
-/*   Updated: 2020/08/31 17:51:42 by fjimenez         ###   ########.fr       */
+/*   Updated: 2020/08/31 19:50:44 by fjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int main()
 
     char	str1[100] = "Adios";
 	char	str2[100] = "Hola";
+    char	str4[6] = "Adios";
+	char	str5[5] = "Hola";
 	char	str3[100] = "Tintin se fue a la guerra\n";
 
     printf("%sPRUEBA DE FT_STRLEN: \n", YELLOW);
@@ -37,10 +39,10 @@ int main()
     printf("\n");
 
     printf("%sPRUEBA DE FT_STRCMP: \n", MAGENTA);
-    printf("%d\n", ft_strcmp("hola", "torrefacto"));
+    printf("%d\n", ft_strcmp(str2, "Hola"));
     
     printf("%sPRUEBA DE STRCMP REAL: \n", MAGENTA);
-    printf("%d\n", strcmp("hola", "torrefacto"));
+    printf("%d\n", strcmp(str2, "Hola"));
     printf("\n");
 
     printf("%sPRUEBA DE FT_WRITE: \n", ROJO);
