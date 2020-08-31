@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fjimenez <fjimenez@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: fjimenez <fjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 21:25:31 by fernando          #+#    #+#             */
-/*   Updated: 2020/07/29 18:08:02 by fjimenez         ###   ########.fr       */
+/*   Updated: 2020/08/31 17:51:42 by fjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ int main()
     printf("\n");
 
     printf("%sPRUEBA DE FT_STRCMP: \n", MAGENTA);
-    printf("%d\n", ft_strcmp(str1, str3));
+    printf("%d\n", ft_strcmp("hola", "torrefacto"));
     
     printf("%sPRUEBA DE STRCMP REAL: \n", MAGENTA);
-    printf("%d\n", strcmp(str1, str3));
+    printf("%d\n", strcmp("hola", "torrefacto"));
     printf("\n");
 
     printf("%sPRUEBA DE FT_WRITE: \n", ROJO);
