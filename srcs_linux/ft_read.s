@@ -2,9 +2,9 @@ global ft_read
 extern	__errno_location
 
 ft_read:
-	mov rax, 0 	; pone la clave de lectura en rax
+	mov rax, 0
     syscall
-	cmp rax, 0			; llama a read
+	cmp rax, 0
 	jl	exit		; salta a error_exit si read no puede leer
 	ret					
 

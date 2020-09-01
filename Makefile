@@ -6,7 +6,7 @@
 #    By: fjimenez <fjimenez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/17 21:23:10 by fernando          #+#    #+#              #
-#    Updated: 2020/08/31 19:56:02 by fjimenez         ###   ########.fr        #
+#    Updated: 2020/09/01 13:45:07 by fjimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,8 @@ SRC_FILES =	ft_strlen.s \
 
 CC = gcc
 
+RM = rm -rf
+
 SRC	= $(addprefix $(SRC_DIR), $(SRC_FILES))
 
 NASM = nasm
@@ -43,7 +45,7 @@ NASM = nasm
 OBJ = $(SRC:.s=.o)
 
 %.o : %.s
-	$(NASM) $(NASMFLAGS) $< -o $@
+	@$(NASM) $(NASMFLAGS) $< -o $@
 
 all : $(NAME)
 
@@ -52,14 +54,17 @@ $(NAME) : $(OBJ)
 	@echo ======DONE======
 
 execute :
-	@$(CC) $(PATCH) main.c $(NAME_LIB) && ./a.out
+	@$(CC) $(PATCH) main.c $(NAME_LIB) -o $(NAME) && ./$(NAME)
+
+valgrind : execute
+	@valgrind --leak-check=full ./$(NAME)
 
 clean :
-	@rm -f $(OBJ)
+	@$(RM) $(OBJ)
 
 fclean : clean
-	@rm -f $(NAME_LIB)
-	@rm -f ./a.out
+	@$(RM) $(NAME_LIB)
+	@$(RM) $(NAME)
 	@echo ======REMOVED======
 
 re : fclean all

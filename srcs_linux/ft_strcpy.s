@@ -19,7 +19,5 @@ increment:
         jmp cpy_str
 
 exit:
-        ;mov dl, 0                       ; dest = '\0'
-        ;mov [rdi + rax], dl             ; y vuelve hacerse swap a dest
         mov rax, rdi                    ; rax siempre contiene el valor de retorno
         ret                             ; return rax
